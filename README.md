@@ -115,13 +115,30 @@ export default Blog;
 ### Menggunakan Dynamic Routes 
 1. Buat direktori baru di pages dengan nama blog. 
 2. Buat file di dalam direktori blog dengan nama [slug].js 
-> ![Screenshot](assets-report/04.png)
-
 3. Tambahkan kode berikut untuk membuat halaman dinamis berdasarkan slug: 
+```bash
+import { useRouter } from "next/router";
+
+const BlogPost = () => {
+  const router = useRouter();
+  const { slug } = router.query;
+
+  return (
+    <div>
+      <h1>Blog Post: {slug}</h1>
+      <p>Ini adalah blog post dengan slug {slug}.</p>
+    </div>
+  );
+};
+
+export default BlogPost;
+
+```
+
 4. Simpan file dan buka http://localhost:3000/blog/contoh-post di browser. Anda akan melihat halaman yang menampilkan slug dari URL.
-> ![Screenshot](assets-report/04.png)
+> ![Screenshot](assets-report/d/01.png)
 > 
-> Berhasil melaukan pengiriman data dengan props
+> Berhasil menampilkan slug dari URL.
 
 ### Menggunakan API Routes 
 1. Pastikan terdapat direktori di pages dengan nama api. 
