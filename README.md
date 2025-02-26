@@ -239,5 +239,13 @@ pengguna dari API https://jsonplaceholder.typicode.com/users.
 OpenWeatherMap) dan tampilkan data tersebut di halaman front-end.
 
 > ![Screenshot](assets-report/tugas/01.png)
+> Menampilkan halaman home awal
+>
+> ![Screenshot](assets-report/tugas/02.png)
+> Menampilkan daftar pengguna yang diambil dari API.
 > 
-> Berhasil membuat todo list yang menampilkan daftar tugas yang bisa ditambahkan dan dihapus
+> ![Screenshot](assets-report/tugas/03.png)
+> Menampilkan detail pengguna berdasarkan ID yang diklik.
+>
+> ![Screenshot](assets-report/tugas/04.png)
+> Menampilkan data cuaca berdasarkan API dari OpenWeatherMap. 

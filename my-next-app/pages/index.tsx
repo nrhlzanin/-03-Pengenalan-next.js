@@ -1,13 +1,16 @@
 import Link from "next/link";
 
-const HomePage = () => {
+export default function Home() {
   return (
     <div>
       <h1>Selamat Datang di Website Saya!</h1>
       <p>Ini adalah halaman utama.</p>
-      <Link href="/about">Tentang Kami</Link>
+
+      <ul>
+        <li><Link href="/about">Tentang Kami</Link></li>
+        <li><Link href="/users">Daftar Pengguna</Link></li>
+        <li><Link href="/weather">Data Cuaca</Link></li>
+      </ul>
     </div>
   );
-};
-
-export default HomePage;
+}
