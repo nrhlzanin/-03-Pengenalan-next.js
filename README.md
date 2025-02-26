@@ -75,12 +75,42 @@ export default HomePage;
 ### Menggunakan Static Site Generation (SSG) 
 1. Buat file baru di direktori pages dengan nama blog.js. 
 2. Tambahkan kode berikut untuk membuat halaman blog dengan SSG: 
-> ![Screenshot](assets-report/c/02.png)
+```bash
+import React from "react";
+
+const Blog = ({ posts }) => {
+  return (
+    <div>
+      <h1>Blog Saya</h1>
+      {posts.map((post) => (
+        <div key={post.id}>
+          <h2>{post.title}</h2>
+          <p>{post.body}</p>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+export async function getStaticProps() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+  const posts = await res.json();
+
+  return {
+    props: {
+      posts,
+    },
+  };
+}
+
+export default Blog;
+
+```
 
 3. Simpan file dan buka http://localhost:3000/blog di browser. Anda akan melihat daftar post yang diambil dari API eksternal.
-> ![Screenshot](assets-report/c/02.png)
+> ![Screenshot](assets-report/c/01.png)
 > 
-> Berhasil menambahkan tombol yang dapat meningkatkan gitungan saat di klik
+> Berhasil melihat daftar post yang diambil dari API eksternal
 
 ### Menggunakan Dynamic Routes 
 1. Buat direktori baru di pages dengan nama blog. 
