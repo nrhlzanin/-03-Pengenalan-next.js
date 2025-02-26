@@ -194,11 +194,42 @@ produk yang diambil dari API route
 
 ### Menggunakan Link Component 
 1. Buka file pages/index.tsx dan tambahkan modif dengan kode berikut untuk membuat link ke halaman lain: 
-2. Buat file baru di pages dengan nama about.js untuk halaman "Tentang Kami": 
+```bash
+import Link from "next/link";
+
+const HomePage = () => {
+  return (
+    <div>
+      <h1>Selamat Datang di Website Saya!</h1>
+      <p>Ini adalah halaman utama.</p>
+      <Link href="/about">Tentang Kami</Link>
+    </div>
+  );
+};
+
+export default HomePage;
+
+```
+
+2. Buat file baru di pages dengan nama about.js untuk halaman "Tentang Kami":
+```bash
+const AboutPage = () => {
+    return (
+      <div>
+        <h1>Tentang Kami</h1>
+        <p>Kami adalah perusahaan yang mengkhususkan diri dalam pembuatan website berkualitas tinggi.</p>
+      </div>
+    );
+  };
+  
+  export default AboutPage;
+  
+```
 3. Simpan file dan buka http://localhost:3000 di browser. Klik link "Tentang Kami" untuk navigasi ke halaman tentang.
-> ![Screenshot](assets-report/05.png)
+> ![Screenshot](assets-report/f/01.png)
+> ![Screenshot](assets-report/f/02.png)
 > 
-> Berhasil 
+> Berhasil melakukan navigasi ke halaman tentang kami
 
 ## Tugas 
 1. Buat halaman baru dengan menggunakan Static Site Generation (SSG) yang menampilkan daftar 
