@@ -144,11 +144,53 @@ export default BlogPost;
 1. Pastikan terdapat direktori di pages dengan nama api. 
 2. Buat file di dalam direktori api dengan nama products.js. 
 3. Tambahkan kode berikut untuk membuat API route yang mengembalikan daftar produk: 
+```bash
+export default async function handler(req, res) {
+    const response = await fetch('https://fakestoreapi.com/products');
+    const products = await response.json();
+
+    res.status(200).json(products);
+}
+```
+
 4. Buat file baru di pages dengan nama products.js untuk menampilkan daftar produk: 
+```bash
+import { useState, useEffect } from "react";
+
+const ProductList = () => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const response = await fetch("/api/products");
+      const products = await response.json();
+      setProducts(products);
+    };
+
+    fetchProducts();
+  }, []);
+
+  return (
+    <div>
+      <h1>Daftar Produk</h1>
+      <ul>
+        {products.map((product) => (
+          <li key={product.id}>{product.title}</li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default ProductList;
+
+```
+
 5. Simpan file dan buka http://localhost:3000/products di browser. Anda akan melihat daftar produk yang diambil dari API route.
-> ![Screenshot](assets-report/05.png)
+> ![Screenshot](assets-report/e/01.png)
 > 
-> Berhasil 
+> Berhasil melihat daftar
+produk yang diambil dari API route
 
 ### Menggunakan Link Component 
 1. Buka file pages/index.tsx dan tambahkan modif dengan kode berikut untuk membuat link ke halaman lain: 
